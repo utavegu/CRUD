@@ -1,6 +1,26 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
+}
+
+.heading-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 120px;
 }
 
 .memo {
@@ -9,13 +29,43 @@
   border: 1px solid #000000;
   margin: 30px;
   padding: 20px;
+  position: relative;
+}
+
+form {
+  position: relative;
+  width: 400px;
+  height: 200px;
 }
 
 .input-field {
   margin: 30px;
-  border: 1px solid #000000;
+  resize: none;
+}
+
+.button {
+  position: absolute;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .submit-button {
-  cursor: pointer;
+  bottom: 40px;
+  right: 40px;
+  background-image: url("img/arrow_forward-24px.svg");
+}
+
+.refresh-button {
+  background-image: url("img/refresh-24px.svg");
+  position: static;
+}
+
+.remove-button {
+  background-image: url("img/clear-24px.svg");
+  top: -20px;
+  right: -20px;
 }

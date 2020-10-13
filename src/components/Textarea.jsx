@@ -9,11 +9,6 @@ export default class Textarea extends Component {
   state = {
     text: "",
   }
-
-  constructor(props) {
-    super(props);
-    this.addNote = props.onAdd;
-  }
   
   handleChange = ({target}) => {
     this.setState(prevForm => ({...prevForm, [target.name]: target.value}));
@@ -21,7 +16,8 @@ export default class Textarea extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    this.addNote(this.state);
+    this.props.onAdd(this.state);
+    this.setState({text: ""});
   }
 
   render() {
@@ -33,17 +29,18 @@ export default class Textarea extends Component {
           name="text"
           cols="40"
           rows="8"
+          autoFocus
           value={this.state.text}
           onChange={this.handleChange}
         >
         </textarea>
 
         <button
-          className="submit-button"
+          className="button submit-button"
           type="submit"
           onClick={this.handleSubmit}
         >
-          Добавить напоминание
+          <span className="visually-hidden">Добавить напоминание</span>
         </button>
 
 			</form>

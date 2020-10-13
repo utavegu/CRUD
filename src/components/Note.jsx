@@ -15,7 +15,9 @@ export default class Note extends Component {
     return (
       <div className="memo">
         {this.props.memo.content}
-        <button onClick={() => this.handleRemove(this.props.memo.id)}>Удалить</button>
+        <button className="button remove-button" onClick={() => this.handleRemove(this.props.memo.id)}>
+          <span className="visually-hidden">Удалить</span>
+        </button>
       </div>
     )
   }
